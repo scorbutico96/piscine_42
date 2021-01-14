@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 int		*ft_range(int min, int max)
 {
 	int it;
@@ -10,7 +15,7 @@ int		*ft_range(int min, int max)
 	it =  0;
 	if ((max - min) > 0)
 	{
-		vt = malloc(sizeof(*vt) * ((max - min)));
+		vt = malloc(sizeof(*vt) * ((max - min)+1));
 		while (min < max)
 		{
 			vt[it] = min;
@@ -25,17 +30,17 @@ int		*ft_range(int min, int max)
 
 
 
-int main(void)
+int		main(void)
 {
-	int it = 0;
-	int min = 2;
+	int min = 1;
 	int max = 8;
-	int *out ;
-	out = ft_range(min, max);
-	while (out[it])
+	int it;
+	it = 0;
+	
+	while (max - min > it)
 	{
-		printf("%d\n", out[it]);
+		printf("%d\n", ft_range(min, max)[it]);
 		it++;
 	}
-	return 0;
+	return (0);
 }
